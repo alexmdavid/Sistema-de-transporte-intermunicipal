@@ -6,6 +6,7 @@ package sistra.GUI;
 
 import sistra.clases.Municipio;
 import sistra.controladores.Municipio_controlador;
+import sistra.persistence.Persistente;
 
 /**
  *

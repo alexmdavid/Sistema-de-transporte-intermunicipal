@@ -4,6 +4,7 @@
  */
 package sistra.clases;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import sistra.TADS.Grafo;
 
@@ -11,7 +12,7 @@ import sistra.TADS.Grafo;
  *
  * @author ALEX DAVID RUIDIAZ C
  */
-public class Grafo_dinamico<E> implements Grafo<E> {
+public class Grafo_dinamico<E> implements Grafo<E>, Serializable {
 
     LinkedList<Vertice<E>> vertices = new LinkedList<>();
 

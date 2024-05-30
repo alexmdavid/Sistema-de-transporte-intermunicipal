@@ -9,6 +9,7 @@ import java.util.LinkedList;
 /**
  *
  * @author ALEX DAVID RUIDIAZ C
+ * @param <E>
  */
 public interface Grafo<E> {
 

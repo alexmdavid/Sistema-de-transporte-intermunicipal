@@ -4,6 +4,7 @@
  */
 package sistra.controladores;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import sistra.clases.Ruta;
@@ -12,7 +13,7 @@ import sistra.clases.Ruta;
  *
  * @author ALEX DAVID RUIDIAZ C
  */
-public class Rutas_controlador {
+public class Rutas_controlador implements Serializable {
      private List<Ruta> rutas;
 
     public List<Ruta> getRutas() {

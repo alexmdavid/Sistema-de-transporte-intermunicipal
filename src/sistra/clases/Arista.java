@@ -4,11 +4,13 @@
  */
 package sistra.clases;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ALEX DAVID RUIDIAZ C
  */
-public class Arista<T> {
+public class Arista<T> implements Serializable{
 
     private T sucesor;
     private int costo;

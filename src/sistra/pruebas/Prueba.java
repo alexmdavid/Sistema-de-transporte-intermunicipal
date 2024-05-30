@@ -10,7 +10,7 @@ import sistra.algorithms.Dijkstra;
 import sistra.clases.Grafo_dinamico;
 import sistra.clases.Municipio;
 import sistra.clases.Ruta;
-import sistra.logic.Controlador;
+import sistra.logica.Controlador;
 
 /**
  *

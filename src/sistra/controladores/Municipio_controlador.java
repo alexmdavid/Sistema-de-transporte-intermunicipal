@@ -5,6 +5,7 @@
 package sistra.controladores;
 
 
+import java.io.Serializable;
 import sistra.TADS.Grafo;
 import sistra.clases.Grafo_dinamico;
 import sistra.clases.Municipio;
@@ -13,7 +14,7 @@ import sistra.clases.Municipio;
  *
  * @author ALEX DAVID RUIDIAZ C
  */
-public class Municipio_controlador {
+public class Municipio_controlador implements Serializable {
     private Grafo<Municipio> municipios;
     
 

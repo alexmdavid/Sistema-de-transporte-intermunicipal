@@ -4,13 +4,14 @@
  */
 package sistra.clases;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
  *
  * @author ALEX DAVID RUIDIAZ C
  */
-public class Vertice<T> {
+public class Vertice<T> implements Serializable {
 
     private T vertice;
     private LinkedList<Arista<T>> aristas = new LinkedList<>();

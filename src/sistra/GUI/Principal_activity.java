@@ -4,9 +4,15 @@
  */
 package sistra.GUI;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import sistra.controladores.Municipio_controlador;
 import sistra.controladores.Rutas_controlador;
+import sistra.persistence.Persistente;
 
 /**
  *
@@ -16,10 +22,25 @@ public class Principal_activity extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal_activity
+     * 
+     * 
      */
-    public Principal_activity() {
+    
+    Municipio_controlador mc;
+    Persistente per = new Persistente();
+    String archivo = "datos.data";
+    
+    public Principal_activity() throws IOException, FileNotFoundException, ClassNotFoundException {
+        File file=new File(archivo);
+        if(file.exists()){
+            mc= per.recuperar(archivo);
+        }else{
+            mc=new Municipio_controlador();
+        }
+        
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,6 +51,7 @@ public class Principal_activity extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -39,11 +61,21 @@ public class Principal_activity extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+
+        jMenuItem7.setText("jMenuItem7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jMenu1.setText("Registros");
 
@@ -84,6 +116,9 @@ public class Principal_activity extends javax.swing.JFrame {
         jMenuItem6.setText("Distancia entre municipios");
         jMenu2.add(jMenuItem6);
 
+        jMenuItem9.setText("Comprar Pasaje");
+        jMenu2.add(jMenuItem9);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Acerca de");
@@ -97,9 +132,6 @@ public class Principal_activity extends javax.swing.JFrame {
         jMenu3.add(jMenuItem8);
 
         jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Salir");
-        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
@@ -118,7 +150,9 @@ public class Principal_activity extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    Municipio_controlador mc = new Municipio_controlador();
+   
+    
+    
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         Form_municipio forma = new Form_municipio(mc);
@@ -142,6 +176,19 @@ public class Principal_activity extends javax.swing.JFrame {
         String lis = mc.getMunicipios().mostrar();
         JOptionPane.showMessageDialog(this, lis);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        try {
+            // TODO add your handling code here:
+            per.guardar(mc,archivo);
+        } catch (IOException ex) {
+            Logger.getLogger(Principal_activity.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowClosing
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -173,7 +220,13 @@ public class Principal_activity extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal_activity().setVisible(true);
+                try {
+                    new Principal_activity().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Principal_activity.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Principal_activity.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -182,7 +235,6 @@ public class Principal_activity extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -190,6 +242,8 @@ public class Principal_activity extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }
