@@ -6,12 +6,9 @@ package sistra.GUI;
 
 import sistra.clases.Municipio;
 import sistra.controladores.Municipio_controlador;
-import sistra.persistence.Persistente;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
+
+
 public class Form_municipio extends javax.swing.JFrame {
 
     /**

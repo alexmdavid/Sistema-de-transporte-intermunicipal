@@ -6,6 +6,8 @@ package sistra.controladores;
 
 
 import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
 import sistra.TADS.Grafo;
 import sistra.clases.Grafo_dinamico;
 import sistra.clases.Municipio;
@@ -21,6 +23,15 @@ public class Municipio_controlador implements Serializable {
     public Grafo<Municipio> getMunicipios() {
         return municipios;
     }
+    
+   public LinkedList<Municipio> obtener_municipios(){
+    LinkedList<Municipio> muns = new LinkedList<>();
+    for(int i = 0; i < municipios.tamaño(); i++){
+        muns.add(municipios.obtener_vertice(i));
+    }
+    return muns;
+}
+
 
     public void setMunicipios(Grafo<Municipio> municipios) {
         this.municipios = municipios;

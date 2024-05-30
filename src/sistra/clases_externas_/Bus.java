@@ -2,16 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package sistra.Clases_externas;
+package sistra.clases_externas_;
 
 import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
+
 public class Bus implements Serializable {
 
     private int id_bus;
@@ -33,7 +30,7 @@ public class Bus implements Serializable {
         }
     }
 
-    private int[] convertirAsientoAIndices(String identificador) {
+    private int[] convertir_asiento_a_indices(String identificador) {
         Pattern pattern = Pattern.compile("([A-J])(\\d)");
         Matcher matcher = pattern.matcher(identificador);
         if (matcher.matches()) {
@@ -48,10 +45,10 @@ public class Bus implements Serializable {
     }
 
     // Vende un asiento dado su identificador
-    public boolean venderAsiento(String identificador) {
+    public boolean vender_asiento(String identificador) {
         Asiento_definido ob= new Asiento_definido();
         ob.definir_asientos();
-        int[] indices = convertirAsientoAIndices(identificador);
+        int[] indices = convertir_asiento_a_indices(identificador);
         int fila = indices[0];
         int columna = indices[1];
 
@@ -64,7 +61,7 @@ public class Bus implements Serializable {
     }
     
      // Imprimir el estado del bus (opcional, para ver el estado de los asientos)
-    public void imprimirBus() {
+    public void imprimir_bus() {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 10; j++) {
                 System.out.print(asientos[i][j] + " ");

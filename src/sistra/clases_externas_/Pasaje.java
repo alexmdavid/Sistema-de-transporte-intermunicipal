@@ -2,15 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package sistra.Clases_externas;
+package sistra.clases_externas_;
 
 import java.io.Serializable;
 import sistra.clases.Municipio;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
+
 public class Pasaje implements Serializable{
     private Municipio incio;
     private Municipio llegada;

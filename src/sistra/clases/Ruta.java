@@ -49,7 +49,7 @@ public class Ruta implements Serializable {
     /**
      * @return the distancia
      */
-    public Object getDistancia() {
+    public int getDistancia() {
         return distancia;
     }
 
