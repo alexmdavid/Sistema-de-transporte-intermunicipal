@@ -11,11 +11,11 @@ import java.util.regex.Pattern;
 
 public class Bus implements Serializable {
 
-    private int id_bus;
+    private String id_bus;
     private int[][] asientos;
     private boolean disponible;
 
-    public Bus(int id_bus, boolean disponible) {
+    public Bus(String id_bus, boolean disponible) {
         this.id_bus = id_bus;
         this.disponible = disponible;
         asientos = new int[4][10];
@@ -75,15 +75,20 @@ public class Bus implements Serializable {
     /**
      * @return the id_bus
      */
-    public int getId_bus() {
+    public String getId_bus() {
         return id_bus;
     }
 
     /**
      * @param id_bus the id_bus to set
      */
-    public void setId_bus(int id_bus) {
+    public void setId_bus(String id_bus) {
         this.id_bus = id_bus;
+    }
+
+    @Override
+    public String toString() {
+        return "Bus{" + "id_bus=" + id_bus + ", disponible=" + disponible + '}';
     }
 
     /**

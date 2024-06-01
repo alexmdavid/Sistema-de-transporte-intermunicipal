@@ -10,10 +10,13 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import sistra.TADS.Grafo;
+import sistra.clases.Municipio;
 import sistra.controladores.Bus_controlador;
 import sistra.controladores.Municipio_controlador;
 import sistra.controladores.Pasaje_controlador;
 import sistra.controladores.Rutas_controlador;
+import sistra.logica.Controlador_general;
 import sistra.persistence.Persistente;
 
 
@@ -62,6 +65,7 @@ public class Principal_activity extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
 
@@ -96,6 +100,11 @@ public class Principal_activity extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
 
         jMenuItem10.setText("Registrar Bus");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem10);
 
         jMenuBar1.add(jMenu1);
@@ -117,6 +126,11 @@ public class Principal_activity extends javax.swing.JFrame {
         jMenu2.add(jMenuItem5);
 
         jMenuItem6.setText("Distancia entre municipios");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem6);
 
         jMenuItem9.setText("Comprar Pasaje");
@@ -126,6 +140,14 @@ public class Principal_activity extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem9);
+
+        jMenuItem11.setText("Ver Buses");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem11);
 
         jMenuBar1.add(jMenu2);
 
@@ -205,6 +227,36 @@ public class Principal_activity extends javax.swing.JFrame {
         forma.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        String mensaje = mc.mostrar_solo_municipios();
+
+        int pos1 = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje, "Selecciona el municipio de inicio", JOptionPane.QUESTION_MESSAGE));
+        int pos2 = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje, "Selecciona el municipio de llegada", JOptionPane.QUESTION_MESSAGE));
+        Grafo g = mc.getMunicipios();
+        Municipio m1=mc.getMunicipios().obtener_vertice(pos1-1);
+        Municipio m2=mc.getMunicipios().obtener_vertice(pos2-1);
+        int distancia = Controlador_general.distancia_entre_dos_muns(g, m1, m2);
+        String mens ="";
+        if(distancia!=999999999)
+             mens = "la distancia entre "+m1.getNombre()+" y "+m2.getNombre()+" es de "+distancia+"km";
+        else
+            mens = "no hay rutas que conecten a estos municipios";
+        JOptionPane.showMessageDialog(this, mens);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        Form_bus forma = new Form_bus(bc);
+        forma.setVisible(true);
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+        String lis = bc.mostrar_buses();
+        JOptionPane.showMessageDialog(this, lis);
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -253,6 +305,7 @@ public class Principal_activity extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

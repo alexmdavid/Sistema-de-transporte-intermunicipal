@@ -99,10 +99,11 @@ public class Form_ruta extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
+        String mensaje = mc.mostrar_solo_municipios();
         String nombre = txtNombre.getText();
         int distancia = Integer.parseInt(txtDistancia.getText());
-        int vi = Integer.parseInt(JOptionPane.showInputDialog(mc.mostrar_solo_municipios()));
-        int vf = Integer.parseInt(JOptionPane.showInputDialog(mc.mostrar_solo_municipios()));
+        int vi = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje, "Selecciona el municipio de inicio", JOptionPane.QUESTION_MESSAGE));
+        int vf = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje, "Selecciona el municipio de llegada", JOptionPane.QUESTION_MESSAGE));
         Ruta ruta = new Ruta(nombre, distancia, vi, vf);
         rc.add_ruta(ruta);
         mc.getMunicipios().insertar_arista(ruta.getVi()-1, ruta.getVf()-1, (int) ruta.getDistancia(), ruta);

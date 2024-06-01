@@ -4,6 +4,7 @@
  */
 package sistra.logica;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.LinkedList;
 import sistra.TADS.Grafo;
@@ -17,7 +18,7 @@ import sistra.clases.Ruta;
  *
  * @author ALEX DAVID RUIDIAZ C
  */
-public class Controlador_general {
+public class Controlador_general implements Serializable {
 
     public static void main(String[] args) {
         Grafo<Municipio> gra = new Grafo_dinamico<>();
@@ -135,4 +136,6 @@ public class Controlador_general {
         }
         return "";
     }
+    
+    
 }

@@ -6,8 +6,11 @@ package sistra.GUI;
 
 import java.util.List;
 import javax.swing.JComboBox;
-import sistra.algorithms.Recorrido;
+import javax.swing.JOptionPane;
+import sistra.TADS.Grafo;
 import sistra.clases.Municipio;
+import sistra.clases_externas_.Bus;
+import sistra.clases_externas_.Pasaje;
 import sistra.controladores.Bus_controlador;
 import sistra.controladores.Municipio_controlador;
 import sistra.controladores.Pasaje_controlador;
@@ -127,13 +130,21 @@ public class Form_pasaje extends javax.swing.JFrame {
 
     private void jButton1ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ComprarActionPerformed
         // TODO add your handling code here:
+        Grafo g = mc.getMunicipios();
         Municipio mun_partida = (Municipio) jComboBoxPartida.getSelectedItem();
         Municipio mun_llegada = (Municipio) jComboBoxllegada.getSelectedItem();
         String fila = (String) jComboBoxFilaAsientos.getSelectedItem();
         String numero_fila = (String) jComboBox1NumeroAsiento.getSelectedItem();
-        String id_asiento = fila+numero_fila;
+        String asiento = fila+numero_fila;
         boolean verificar_rutas = Controlador_general.verificar_rutas(mc.getMunicipios(), mun_partida, mun_llegada);
-        Recorrido rec = new Recorrido();
+        int distancia = Controlador_general.distancia_entre_dos_muns(g, mun_partida, mun_llegada);
+        String mensaje=bc.mostrar_buses_disponibles();
+        int pos_bus = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje, "Selecciona el bus en el cual viajará", JOptionPane.QUESTION_MESSAGE));
+        Bus bus = bc.getBuses().get(pos_bus-1);
+        Pasaje pasaje = new Pasaje(mun_partida, mun_llegada, distancia, bus, asiento);
+        pc.add_pasaje(pasaje);
+        
+        
         
     }//GEN-LAST:event_jButton1ComprarActionPerformed
 
