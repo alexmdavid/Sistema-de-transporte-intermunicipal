@@ -3,29 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/clases/Arista.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/algorithms/Recorrido.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/pruebas/Prueba.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/GUI/Form_pasaje.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/clases_externas_/Asiento_definido.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/GUI/Form_municipio.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/controladores/Pasaje_controlador.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/algorithms/Dijkstra.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/clases/Vertice.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/controladores/Municipio_controlador.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/GUI/Form_ruta.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/clases_externas_/Bus.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/clases_externas_/Pasaje.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/clases/Ruta.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/clases/Grafo_dinamico.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/GUI/Principal_activity.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/clases/Municipio.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/controladores/Bus_controlador.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/TADS/Grafo.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/controladores/Rutas_controlador.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/logica/Controlador.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/clases_externas_/Prueba.java</file>
-            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/logica/Principal.java</file>
+            <file>file:/C:/Users/ALEX%20DAVID%20RUIDIAZ%20C/OneDrive%20-%20Universidad%20del%20Magdalena/Documentos/NetBeansProjects/PROYECTOFINALED2_SISTEMA_TRANSPORTE/src/sistra/logica/Controlador_general.java</file>
         </group>
     </open-files>
 </project-private>

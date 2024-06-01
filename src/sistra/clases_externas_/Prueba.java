@@ -4,10 +4,7 @@
  */
 package sistra.clases_externas_;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
+
 public class Prueba {
      public static void main(String[] args) {
         Bus bus = new Bus(110,true);

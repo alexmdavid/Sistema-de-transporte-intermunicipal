@@ -6,15 +6,14 @@ package sistra.GUI;
 
 import java.util.List;
 import javax.swing.JComboBox;
+import sistra.algorithms.Recorrido;
 import sistra.clases.Municipio;
 import sistra.controladores.Bus_controlador;
 import sistra.controladores.Municipio_controlador;
 import sistra.controladores.Pasaje_controlador;
+import sistra.logica.Controlador_general;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
+
 public class Form_pasaje extends javax.swing.JFrame {
 
     Municipio_controlador mc;
@@ -49,7 +48,7 @@ public class Form_pasaje extends javax.swing.JFrame {
         jComboBox1NumeroAsiento = new javax.swing.JComboBox<>();
         jButton1Comprar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Municipio de partida");
 
@@ -64,6 +63,11 @@ public class Form_pasaje extends javax.swing.JFrame {
         jComboBox1NumeroAsiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
 
         jButton1Comprar.setText("Comprar Pasaje");
+        jButton1Comprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ComprarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,6 +124,18 @@ public class Form_pasaje extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ComprarActionPerformed
+        // TODO add your handling code here:
+        Municipio mun_partida = (Municipio) jComboBoxPartida.getSelectedItem();
+        Municipio mun_llegada = (Municipio) jComboBoxllegada.getSelectedItem();
+        String fila = (String) jComboBoxFilaAsientos.getSelectedItem();
+        String numero_fila = (String) jComboBox1NumeroAsiento.getSelectedItem();
+        String id_asiento = fila+numero_fila;
+        boolean verificar_rutas = Controlador_general.verificar_rutas(mc.getMunicipios(), mun_partida, mun_llegada);
+        Recorrido rec = new Recorrido();
+        
+    }//GEN-LAST:event_jButton1ComprarActionPerformed
 
     /**
      * @param args the command line arguments

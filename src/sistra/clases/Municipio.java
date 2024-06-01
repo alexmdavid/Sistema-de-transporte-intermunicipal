@@ -6,10 +6,7 @@ package sistra.clases;
 
 import java.io.Serializable;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
+
 public class Municipio implements Serializable{
 
     private String nombre;

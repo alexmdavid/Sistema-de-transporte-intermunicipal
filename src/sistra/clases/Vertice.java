@@ -7,10 +7,7 @@ package sistra.clases;
 import java.io.Serializable;
 import java.util.LinkedList;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
+
 public class Vertice<T> implements Serializable {
 
     private T vertice;

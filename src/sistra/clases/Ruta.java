@@ -6,10 +6,7 @@ package sistra.clases;
 
 import java.io.Serializable;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
+
 public class Ruta implements Serializable {
     private String nombre;
     private int distancia; //en kilometros

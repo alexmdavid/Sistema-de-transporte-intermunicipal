@@ -9,10 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 import sistra.clases_externas_.Pasaje;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
+
 public class Pasaje_controlador implements Serializable{
     List<Pasaje> pasajes;
 

@@ -6,9 +6,7 @@ package sistra.clases;
 
 import java.io.Serializable;
 import java.util.LinkedList;
-import java.util.List;
 import sistra.TADS.Grafo;
-
 
 public class Grafo_dinamico<E> implements Grafo<E>, Serializable {
 
@@ -21,8 +19,14 @@ public class Grafo_dinamico<E> implements Grafo<E>, Serializable {
 
     @Override
     public void modificar_arista(int i, int j) {
+        if (i < 0 || i >= vertices.size()) {
+            throw new IndexOutOfBoundsException("Índice de vértice fuera de rango: i=" + i + ", Size=" + vertices.size());
+        }
+        if (j < 0 || j-1 >= vertices.get(i).getAristas().size()) {
+            throw new IndexOutOfBoundsException("Índice de arista fuera de rango: j=" + j + ", Size=" + vertices.get(i).getAristas().size());
+        }
         vertices.get(i).getAristas().get(j).setCosto(999999999);
-        vertices.get(i).getAristas().remove();
+        vertices.get(i).getAristas().remove(j);
     }
 
     @Override
@@ -78,14 +82,12 @@ public class Grafo_dinamico<E> implements Grafo<E>, Serializable {
             s += "" + vertice.getVertice();
             LinkedList<Arista<E>> aristas = vertice.getAristas();
             for (Arista<E> arista : aristas) {
-                s += " apunta a " + arista.getSucesor() + " distancia: " + arista.getCosto()+"km";
+                s += " apunta a " + arista.getSucesor() + " distancia: " + arista.getCosto() + "km";
             }
             s += "\n";
         }
 
         return s;
     }
-
-   
 
 }

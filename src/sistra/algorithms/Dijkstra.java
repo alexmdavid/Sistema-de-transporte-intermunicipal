@@ -8,10 +8,7 @@ import sistra.clases.Municipio;
 import java.util.HashSet;
 import sistra.TADS.Grafo;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
+
 public class Dijkstra {
 private int d[]; //vector resultante
     private Grafo<Municipio> gra; //gra

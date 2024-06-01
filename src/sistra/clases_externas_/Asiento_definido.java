@@ -8,10 +8,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
 public class Asiento_definido implements Serializable{
     List<String> asientos_definidos;
 

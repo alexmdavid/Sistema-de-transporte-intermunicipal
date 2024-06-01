@@ -5,13 +5,7 @@
 package sistra.TADS;
 
 import java.util.LinkedList;
-import java.util.List;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- * @param <E>
- */
 public interface Grafo<E> {
 
     void insertar_vertice(E x);
@@ -20,7 +14,7 @@ public interface Grafo<E> {
 
     E obtener_vertice(int i);
 
-    void insertar_arista(int vertice_inicial, int vertice_final, int arista, Object x);
+    void insertar_arista(int vertice_inicial, int vertice_final, int costo, Object x);
 
     int costo_arista(int i, int j);
 

@@ -9,10 +9,7 @@ import sistra.clases.Ruta;
 import sistra.controladores.Municipio_controlador;
 import sistra.controladores.Rutas_controlador;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
+
 public class Form_ruta extends javax.swing.JFrame {
 
     /**

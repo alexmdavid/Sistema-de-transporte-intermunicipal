@@ -14,10 +14,6 @@ import sistra.controladores.Municipio_controlador;
 
 
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
 public class Persistente{
     public void guardar(Municipio_controlador x, String a ) throws FileNotFoundException, IOException{
         ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(a));

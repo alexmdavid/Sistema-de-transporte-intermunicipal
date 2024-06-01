@@ -9,10 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 import sistra.clases.Ruta;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
+
 public class Rutas_controlador implements Serializable {
      private List<Ruta> rutas;
 

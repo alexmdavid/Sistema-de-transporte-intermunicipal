@@ -10,10 +10,7 @@ import java.util.List;
 import sistra.clases_externas_.Bus;
 
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
+
 public class Bus_controlador implements Serializable {
     List<Bus> buses;
 

@@ -16,10 +16,7 @@ import sistra.controladores.Pasaje_controlador;
 import sistra.controladores.Rutas_controlador;
 import sistra.persistence.Persistente;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
+
 public class Principal_activity extends javax.swing.JFrame {
 
     /**

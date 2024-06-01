@@ -10,10 +10,7 @@ import java.util.List;
 import sistra.TADS.Grafo;
 import sistra.clases.Municipio;
 
-/**
- *
- * @author ALEX DAVID RUIDIAZ C
- */
+
 public class Recorrido {
 
     HashSet<Municipio> visitados = new HashSet<>();
