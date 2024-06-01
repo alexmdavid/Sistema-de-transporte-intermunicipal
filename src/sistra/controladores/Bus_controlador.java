@@ -20,17 +20,27 @@ public class Bus_controlador implements Serializable {
     
     public String mostrar_buses(){
         String lis = "";
+        int con = 1;
         for (Bus bus : getBuses()) {         
-                lis+=bus.toString()+"\n";
+                lis+=con+" "+bus.toString()+"\n";
+                con++;
         }
         return lis;
     }
     
+    public void resetear_buses(){
+        for (Bus bus : buses) {
+            bus.iniciar_bus();
+        }
+    }
+    
     public String mostrar_buses_disponibles(){
         String lis = "";
+        int con = 1;
         for (Bus bus : getBuses()) {
             if(bus.isDisponible()){
-                lis+=bus.toString()+"\n";
+                lis+=con+" "+bus.toString()+"\n";
+                con++;
             }
         }
         return lis;

@@ -16,7 +16,6 @@ import sistra.controladores.Municipio_controlador;
 import sistra.controladores.Pasaje_controlador;
 import sistra.logica.Controlador_general;
 
-
 public class Form_pasaje extends javax.swing.JFrame {
 
     Municipio_controlador mc;
@@ -28,8 +27,8 @@ public class Form_pasaje extends javax.swing.JFrame {
         this.pc = pc;
         this.bc = bc;
         initComponents();
-        llenar_combobox(jComboBoxPartida,  mc.obtener_municipios());
-        llenar_combobox(jComboBoxllegada,  mc.obtener_municipios());
+        llenar_combobox(jComboBoxPartida, mc.obtener_municipios());
+        llenar_combobox(jComboBoxllegada, mc.obtener_municipios());
     }
 
     /**
@@ -133,19 +132,37 @@ public class Form_pasaje extends javax.swing.JFrame {
         Grafo g = mc.getMunicipios();
         Municipio mun_partida = (Municipio) jComboBoxPartida.getSelectedItem();
         Municipio mun_llegada = (Municipio) jComboBoxllegada.getSelectedItem();
+
         String fila = (String) jComboBoxFilaAsientos.getSelectedItem();
         String numero_fila = (String) jComboBox1NumeroAsiento.getSelectedItem();
-        String asiento = fila+numero_fila;
+        String asiento = fila + numero_fila;
         boolean verificar_rutas = Controlador_general.verificar_rutas(mc.getMunicipios(), mun_partida, mun_llegada);
         int distancia = Controlador_general.distancia_entre_dos_muns(g, mun_partida, mun_llegada);
-        String mensaje=bc.mostrar_buses_disponibles();
-        int pos_bus = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje, "Selecciona el bus en el cual viajará", JOptionPane.QUESTION_MESSAGE));
-        Bus bus = bc.getBuses().get(pos_bus-1);
-        Pasaje pasaje = new Pasaje(mun_partida, mun_llegada, distancia, bus, asiento);
-        pc.add_pasaje(pasaje);
-        
-        
-        
+        String mensaje = bc.mostrar_buses_disponibles();
+        Pasaje pasaje;
+        try {
+            int pos_bus = Integer.parseInt(JOptionPane.showInputDialog(null, mensaje, "Selecciona el bus en el cual viajará", JOptionPane.QUESTION_MESSAGE));
+            // Resto del código que utiliza pos_bus
+            Bus bus = bc.getBuses().get(pos_bus - 1);
+
+            if (bus.vender_asiento(asiento)) {
+                if (verificar_rutas) {
+                    pasaje = new Pasaje(mun_partida, mun_llegada, distancia, bus, asiento);
+                    pc.add_pasaje(pasaje);
+                } else {
+                    JOptionPane.showMessageDialog(this, "No hay ruta que conecte estos municipios");
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Asiento ya vendido");
+            }
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(null, "Error: Ingresa un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
+
+            throw new RuntimeException("El usuario no ingresó un número válido.");
+        }
+        dispose();
+
     }//GEN-LAST:event_jButton1ComprarActionPerformed
 
     /**

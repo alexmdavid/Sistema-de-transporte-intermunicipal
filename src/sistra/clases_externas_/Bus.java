@@ -52,7 +52,7 @@ public class Bus implements Serializable {
         int fila = indices[0];
         int columna = indices[1];
 
-        if (asientos[fila][columna] == 0 && ob.verificar_rango_asiento(identificador)) {
+        if (asientos[fila][columna] == 0 ) {
             asientos[fila][columna] = 1;
             return true; // Asiento vendido exitosamente
         } else {

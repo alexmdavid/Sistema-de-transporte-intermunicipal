@@ -18,9 +18,11 @@ import sistra.controladores.Pasaje_controlador;
 import sistra.controladores.Rutas_controlador;
 import sistra.logica.Controlador_general;
 import sistra.persistence.Persistente;
+import sistra.persistence.Persistente_bus;
+import sistra.persistence.Persistente_pasaje;
 
 
-public class Principal_activity extends javax.swing.JFrame {
+public final class Principal_activity extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal_activity
@@ -32,14 +34,44 @@ public class Principal_activity extends javax.swing.JFrame {
     Persistente per = new Persistente();
     String archivo = "datos.data";
     
-    public Principal_activity() throws IOException, FileNotFoundException, ClassNotFoundException {
+    Persistente_pasaje per_pasa = new Persistente_pasaje();
+    String data = "pasajes.data";
+    
+    Persistente_bus per_bus = new Persistente_bus();
+    String data_bus = "bus.data";
+    
+    public void pasaje_data() throws IOException, FileNotFoundException, ClassNotFoundException{
+        File file=new File(data);
+        if(file.exists()){
+            pc= per_pasa.recuperar(data);
+        }else{
+            pc=new Pasaje_controlador();
+            bc.resetear_buses();
+        }
+    }
+    
+    public void municipio_data() throws IOException, FileNotFoundException, ClassNotFoundException{
         File file=new File(archivo);
         if(file.exists()){
             mc= per.recuperar(archivo);
         }else{
             mc=new Municipio_controlador();
         }
-        
+    }
+    
+    public void bus_data() throws IOException, FileNotFoundException, ClassNotFoundException{
+        File file=new File(data_bus);
+        if(file.exists()){
+            bc= per_bus.recuperar(data_bus);
+        }else{
+            bc=new Bus_controlador();
+        }
+    }
+    
+    public Principal_activity() throws IOException, FileNotFoundException, ClassNotFoundException{
+        municipio_data();
+        pasaje_data();
+        bus_data();
         initComponents();
     }
     
@@ -59,15 +91,15 @@ public class Principal_activity extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         jMenuItem7.setText("jMenuItem7");
 
@@ -107,6 +139,14 @@ public class Principal_activity extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem10);
 
+        jMenuItem9.setText("Comprar Pasaje");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem9);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Procesos");
@@ -119,27 +159,16 @@ public class Principal_activity extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem3);
 
-        jMenuItem4.setText("Ver Rutas");
+        jMenuItem4.setText("Ver Pasajes");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
-        jMenuItem5.setText("Ruta mas Corta");
+        jMenuItem5.setText("Ver municipios de llegadga desde un origen");
         jMenu2.add(jMenuItem5);
-
-        jMenuItem6.setText("Distancia entre municipios");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem6);
-
-        jMenuItem9.setText("Comprar Pasaje");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem9);
 
         jMenuItem11.setText("Ver Buses");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
@@ -160,6 +189,14 @@ public class Principal_activity extends javax.swing.JFrame {
             }
         });
         jMenu3.add(jMenuItem8);
+
+        jMenuItem6.setText("Distancia entre municipios");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem6);
 
         jMenuBar1.add(jMenu3);
 
@@ -211,6 +248,8 @@ public class Principal_activity extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             per.guardar(mc,archivo);
+            per_pasa.guardar(pc, data);
+            per_bus.guardar(bc, data_bus);
         } catch (IOException ex) {
             Logger.getLogger(Principal_activity.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -225,6 +264,7 @@ public class Principal_activity extends javax.swing.JFrame {
         // TODO add your handling code here:
         Form_pasaje forma = new Form_pasaje(mc, pc, bc);
         forma.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
@@ -256,6 +296,12 @@ public class Principal_activity extends javax.swing.JFrame {
         String lis = bc.mostrar_buses();
         JOptionPane.showMessageDialog(this, lis);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        String lis = pc.mostrar_pasajes();
+        JOptionPane.showMessageDialog(this, lis);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments

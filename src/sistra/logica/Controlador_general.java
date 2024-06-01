@@ -59,7 +59,7 @@ public class Controlador_general implements Serializable {
         Recorrido r = new Recorrido();
         r.Dfs(gra, 0);
         System.out.println("" + r.get_recorrido());
-        boolean l = verificar_rutas(gra, municipio1, municipio6);
+        boolean l = verificar_rutas(gra, municipio1, municipio1);
         System.out.println(l);
         Dijkstra dj = new Dijkstra(gra, 0);
         System.out.println(Arrays.toString(dj.getD()));
@@ -87,7 +87,7 @@ public class Controlador_general implements Serializable {
         int posicion = buscar_municipio(grafo, mun1);
         rec.Dfs(grafo, posicion);
         LinkedList<Municipio> recorrido = rec.get_recorrido();
-        for (int i = 0; i < recorrido.size(); i++) {
+        for (int i = 1; i < recorrido.size(); i++) {
             if (recorrido.get(i).getNombre().equals(mun2.getNombre())) {
                 return true;
             }

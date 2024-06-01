@@ -11,14 +11,37 @@ import sistra.clases_externas_.Pasaje;
 
 
 public class Pasaje_controlador implements Serializable{
-    List<Pasaje> pasajes;
+    private List<Pasaje> pasajes;
 
     public Pasaje_controlador() {
         pasajes = new LinkedList<>();
     }
+
+    /**
+     * @return the pasajes
+     */
+    public List<Pasaje> getPasajes() {
+        return pasajes;
+    }
+
+    public String mostrar_pasajes(){
+        String lis="";
+        for (Pasaje pas : pasajes) {
+            lis += pas.toString()+"\n";
+        }
+        return lis;
+    }
+    
+    /**
+     * @param pasajes the pasajes to set
+     */
+    public void setPasajes(List<Pasaje> pasajes) {
+        this.pasajes = pasajes;
+    }
+   
     
     public void add_pasaje(Pasaje x){
-        pasajes.add(x);
+        getPasajes().add(x);
     }
     
 }
