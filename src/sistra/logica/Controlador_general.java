@@ -65,12 +65,14 @@ public class Controlador_general implements Serializable {
         System.out.println(Arrays.toString(dj.getD()));
         int dis = distancia_entre_dos_muns(gra, municipio1, municipio5);
         System.out.println("" + dis);
-        boolean con_mas_de_una = conecta_mas_de_una_ruta(gra, municipio1, municipio3);
+        boolean con_mas_de_una = conecta_mas_de_una_ruta(gra, municipio1, municipio1);
         System.out.println("" + con_mas_de_una);
-        String des = desconectar_municipio(gra, 0, 4);
+        String des = desconectar_municipio(gra, 0, 0);
         System.out.println(""+des);
         Dijkstra d1 = new Dijkstra(gra, 0);
         System.out.println(""+Arrays.toString(d1.getD()));
+        String in = muns_llegada_desde_origen(gra, 0);
+        System.out.println(""+in);
     }
 
     public static int buscar_municipio(Grafo<Municipio> g, Municipio mun) {
@@ -116,7 +118,6 @@ public class Controlador_general implements Serializable {
     }
 
     public static boolean conecta_mas_de_una_ruta(Grafo g, Municipio m1, Municipio m2) {
-        int pos = buscar_municipio(g, m1);
         return verificar_rutas(g, m1, m2) && !encontar_sucesor(g, m1, m2);
     }
 
@@ -130,12 +131,26 @@ public class Controlador_general implements Serializable {
             for(int i = 0; i<sucesores.size();i++){
                 if(sucesores.get(i).getNombre().equals(m2.getNombre())){
                     g.modificar_arista(pos1, i);
+                    return "municipio " + m1.getNombre() + " desconectado de municipio " + m2.getNombre();
                 }
             }
-            return "municipio " + m1.getNombre() + " desconectado de municipio " + m2.getNombre();
+            
         }
-        return "";
+        return "o quiere desconectar el mismo municipio, o municipos no conectados";  
     }
     
+    public static String muns_llegada_desde_origen(Grafo g, int pos){
+        Recorrido rec =  new Recorrido();
+        rec.Dfs(g, pos);
+        LinkedList<Municipio>lis_rec = rec.get_recorrido();
+        String info = "desde "+lis_rec.get(0).getNombre()+" se puede llegar a ";
+        for (int i=0; i<lis_rec.size()-1;i++) {
+            Municipio m = lis_rec.get(0);
+            info += "["+lis_rec.get(i+1).getNombre()+"]";
+                    
+        }
+        return info;
+        
+    }
     
 }

@@ -40,7 +40,7 @@ public class Ruta implements Serializable {
 
     @Override
     public String toString() {
-        return "Ruta{" + "distancia=" + distancia + '}';
+        return ""+nombre ;
     }
 
     /**

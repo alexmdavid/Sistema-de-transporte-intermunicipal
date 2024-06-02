@@ -28,11 +28,13 @@ public class Pasaje implements Serializable{
     public Float costo_pasaje(){
         return (float) distancia * valor_por_km;
     }
-    
+
     @Override
     public String toString() {
-        return "Pasaje{" + "incio=" + incio.getNombre() + ", llegada=" + llegada.getNombre() + ", distancia=" + distancia + ", valor del pasaje=" + costo_pasaje()+ '}';
+        return "Pasaje{" + "incio=" + incio + ", llegada=" + llegada + ", distancia=" + distancia + ", valor_por_km=" + valor_por_km + ", bus=" + bus + ", asiento=" + asiento + '}';
     }
+    
+    
 
     /**
      * @return the incio

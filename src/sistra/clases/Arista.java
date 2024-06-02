@@ -11,7 +11,15 @@ public class Arista<T> implements Serializable{
 
     private T sucesor;
     private int costo;
-    Object ob;
+    private Object ob;
+
+    public Object getOb() {
+        return ob;
+    }
+
+    public void setOb(Object ob) {
+        this.ob = ob;
+    }
 
     public Arista(T sucesor, int costo, Object ob) {
         this.sucesor = sucesor;

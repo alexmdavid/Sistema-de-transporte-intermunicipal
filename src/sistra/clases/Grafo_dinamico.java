@@ -82,7 +82,7 @@ public class Grafo_dinamico<E> implements Grafo<E>, Serializable {
             s += "" + vertice.getVertice();
             LinkedList<Arista<E>> aristas = vertice.getAristas();
             for (Arista<E> arista : aristas) {
-                s += " apunta a " + arista.getSucesor() + " distancia: " + arista.getCosto() + "km";
+                s += " apunta a " + arista.getSucesor() + " distancia: " + arista.getCosto() + "km "+" por la ruta "+arista.getOb().toString();
             }
             s += "\n";
         }
